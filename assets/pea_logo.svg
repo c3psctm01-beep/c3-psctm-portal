@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="peaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8C249E"/>
+      <stop offset="50%" stop-color="#6B1778"/>
+      <stop offset="100%" stop-color="#4A0E54"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE066"/>
+      <stop offset="50%" stop-color="#FDB913"/>
+      <stop offset="100%" stop-color="#D48B00"/>
+    </linearGradient>
+    <linearGradient id="electricGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00F0FF"/>
+      <stop offset="100%" stop-color="#7000FF"/>
+    </linearGradient>
+    <filter id="peaGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Outer Ring with Tech Accents -->
+  <circle cx="200" cy="200" r="190" fill="none" stroke="url(#goldGrad)" stroke-width="4" opacity="0.8"/>
+  <circle cx="200" cy="200" r="182" fill="none" stroke="#8C249E" stroke-width="1.5" stroke-dasharray="10 8" opacity="0.6"/>
+  
+  <!-- Main Background Badge -->
+  <circle cx="200" cy="200" r="172" fill="url(#peaGrad)" filter="drop-shadow(0 12px 24px rgba(74, 14, 84, 0.45))"/>
+  
+  <!-- Inner Gold Ring -->
+  <circle cx="200" cy="200" r="150" fill="none" stroke="url(#goldGrad)" stroke-width="3"/>
+  <circle cx="200" cy="200" r="142" fill="#3D0B45" opacity="0.95"/>
+
+  <!-- Energy Wave Lines -->
+  <path d="M 65 200 Q 130 160 200 200 T 335 200" fill="none" stroke="#FDB913" stroke-width="1.5" opacity="0.3"/>
+  <path d="M 65 200 Q 130 240 200 200 T 335 200" fill="none" stroke="#00F0FF" stroke-width="1" opacity="0.25"/>
+
+  <!-- Central Crown / Chada Thai Traditional Motif Peak -->
+  <g transform="translate(200, 145) scale(0.95)">
+    <!-- Spire Top -->
+    <path d="M 0 -70 L 6 -45 L -6 -45 Z" fill="url(#goldGrad)" filter="url(#peaGlow)"/>
+    <circle cx="0" cy="-75" r="4" fill="#FFE066"/>
+    
+    <!-- Tiered Crown Levels -->
+    <path d="M -12 -45 Q 0 -52 12 -45 L 16 -32 Q 0 -38 -16 -32 Z" fill="url(#goldGrad)"/>
+    <path d="M -22 -30 Q 0 -40 22 -30 L 28 -14 Q 0 -24 -28 -14 Z" fill="url(#goldGrad)"/>
+    <path d="M -36 -12 Q 0 -22 36 -12 L 42 8 Q 0 -4 -42 8 Z" fill="url(#goldGrad)"/>
+    <path d="M -48 10 Q 0 -2 48 10 L 52 28 Q 0 16 -52 28 Z" fill="url(#goldGrad)"/>
+    
+    <!-- Base Lotus Petals -->
+    <path d="M -30 28 C -15 35 15 35 30 28 C 38 42 -38 42 -30 28 Z" fill="url(#goldGrad)"/>
+  </g>
+
+  <!-- Electric Lightning Bolt (PEA Power Symbol) -->
+  <polygon points="194,155 220,155 204,195 228,195 174,260 186,212 166,212" fill="url(#goldGrad)" filter="url(#peaGlow)"/>
+  <polygon points="197,158 217,158 203,193 223,193 178,252 187,214 171,214" fill="#FFF8D6"/>
+
+  <!-- Substation / Transmission Line Abstract Base -->
+  <g stroke="url(#goldGrad)" stroke-width="2" stroke-linecap="round" opacity="0.85">
+    <line x1="130" y1="275" x2="270" y2="275"/>
+    <line x1="145" y1="275" x2="165" y2="225"/>
+    <line x1="255" y1="275" x2="235" y2="225"/>
+    <line x1="165" y1="225" x2="235" y2="225"/>
+    <line x1="155" y1="250" x2="245" y2="250"/>
+  </g>
+
+  <!-- Typography Curved or Stylized Text -->
+  <text x="200" y="318" text-anchor="middle" font-family="'Prompt', 'Kanit', sans-serif" font-weight="800" font-size="28" fill="#FFFFFF" letter-spacing="4">PEA</text>
+  <text x="200" y="340" text-anchor="middle" font-family="'Prompt', 'Kanit', sans-serif" font-weight="600" font-size="11" fill="#FDB913" letter-spacing="2">การไฟฟ้าส่วนภูมิภาค</text>
+  <text x="200" y="358" text-anchor="middle" font-family="'Prompt', 'Kanit', sans-serif" font-weight="400" font-size="8.5" fill="#E2C4EB" letter-spacing="1">PROVINCIAL ELECTRICITY AUTHORITY</text>
+</svg>
