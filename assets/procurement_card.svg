@@ -1,0 +1,178 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#140522"/>
+      <stop offset="50%" stop-color="#091418"/>
+      <stop offset="100%" stop-color="#04090C"/>
+    </linearGradient>
+
+    <!-- PEA Purple & Gold Gradients -->
+    <linearGradient id="purpleGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8C249E"/>
+      <stop offset="100%" stop-color="#B23FD4"/>
+    </linearGradient>
+    <linearGradient id="goldGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE57F"/>
+      <stop offset="100%" stop-color="#FDB913"/>
+    </linearGradient>
+
+    <!-- Emerald / Green Procurement Accent -->
+    <linearGradient id="emeraldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34D399"/>
+      <stop offset="50%" stop-color="#10B981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+
+    <!-- Paper & Document Gradients -->
+    <linearGradient id="docGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#231A33"/>
+      <stop offset="100%" stop-color="#150D24"/>
+    </linearGradient>
+
+    <!-- Soft Ambient Glow Filters -->
+    <filter id="emeraldGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="highGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="16" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <!-- Tech Grid Pattern -->
+    <pattern id="gridPattern" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(16, 185, 129, 0.12)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bgGrad)"/>
+  <rect width="800" height="450" fill="url(#gridPattern)"/>
+
+  <!-- Ambient Glowing Orbs -->
+  <circle cx="650" cy="180" r="180" fill="#10B981" opacity="0.18" filter="blur(60px)"/>
+  <circle cx="220" cy="240" r="150" fill="#741F84" opacity="0.22" filter="blur(55px)"/>
+  <circle cx="480" cy="360" r="140" fill="#FDB913" opacity="0.12" filter="blur(50px)"/>
+
+  <!-- Technical Circuit & Transmission Grid Lines -->
+  <g stroke="#10B981" stroke-width="1" opacity="0.25" stroke-dasharray="4 4">
+    <line x1="60" y1="380" x2="740" y2="380"/>
+    <line x1="140" y1="60" x2="140" y2="380"/>
+    <circle cx="560" cy="225" r="130"/>
+    <circle cx="560" cy="225" r="170"/>
+  </g>
+
+  <!-- Electric Substation High-Voltage Tower Accent (Left Background) -->
+  <g stroke="#8C249E" stroke-width="1.5" opacity="0.3" fill="none">
+    <polygon points="120 110, 100 370, 140 370"/>
+    <line x1="80" y1="170" x2="160" y2="170"/>
+    <line x1="70" y1="240" x2="170" y2="240"/>
+    <line x1="106" y1="170" x2="134" y2="240"/>
+    <line x1="134" y1="170" x2="106" y2="240"/>
+    <line x1="103" y1="240" x2="137" y2="320"/>
+    <line x1="137" y1="240" x2="103" y2="320"/>
+    <!-- Insulator Strings & Line -->
+    <path d="M 80 170 L 60 190 M 160 170 L 180 190" stroke="#FDB913" stroke-width="2"/>
+    <path d="M 60 190 Q 120 230 180 190" stroke="#FDB913" stroke-width="1.5" stroke-dasharray="3 3"/>
+  </g>
+
+  <!-- Legal & Procurement Balance Scale (Left Center) -->
+  <g transform="translate(240, 200)">
+    <!-- Scale Pillar -->
+    <path d="M 0 140 L 0 -40" stroke="url(#goldGlow)" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="0" cy="-45" r="8" fill="#FFE57F" filter="url(#emeraldGlow)"/>
+    <path d="M -30 140 L 30 140" stroke="url(#goldGlow)" stroke-width="6" stroke-linecap="round"/>
+    
+    <!-- Balance Beam -->
+    <path d="M -70 -25 L 70 -35" stroke="url(#goldGlow)" stroke-width="3" stroke-linecap="round"/>
+    
+    <!-- Left Pan (TOR / Regulation) -->
+    <line x1="-70" y1="-25" x2="-95" y2="25" stroke="#FFE57F" stroke-width="1.5"/>
+    <line x1="-70" y1="-25" x2="-45" y2="25" stroke="#FFE57F" stroke-width="1.5"/>
+    <path d="M -105 25 Q -70 45 -35 25 Z" fill="#2A173B" stroke="url(#goldGlow)" stroke-width="2"/>
+    <circle cx="-70" cy="22" r="5" fill="#FDB913"/>
+
+    <!-- Right Pan (Compliance / Quality) -->
+    <line x1="70" y1="-35" x2="45" y2="15" stroke="#FFE57F" stroke-width="1.5"/>
+    <line x1="70" y1="-35" x2="95" y2="15" stroke="#FFE57F" stroke-width="1.5"/>
+    <path d="M 35 15 Q 70 35 105 15 Z" fill="#2A173B" stroke="url(#goldGlow)" stroke-width="2"/>
+    <circle cx="70" cy="12" r="5" fill="#34D399"/>
+  </g>
+
+  <!-- Center-Right: Procurement Dossier & Digital Contract Cards (Isometric Stack) -->
+  <g transform="translate(450, 100)">
+    <!-- Shadow Base -->
+    <ellipse cx="90" cy="250" rx="140" ry="25" fill="#000000" opacity="0.6" filter="blur(10px)"/>
+
+    <!-- Layer 1: Bottom Contract (e-GP / SAP Connect) -->
+    <rect x="-10" y="30" width="200" height="210" rx="14" fill="#161226" stroke="rgba(140, 36, 158, 0.4)" stroke-width="1.5" transform="rotate(-6 90 135)"/>
+    
+    <!-- Layer 2: Main Document Card (พ.ร.บ. 2560 To-Do List & AI Studio) -->
+    <g filter="url(#emeraldGlow)">
+      <rect x="0" y="0" width="210" height="235" rx="16" fill="url(#docGrad)" stroke="url(#emeraldGrad)" stroke-width="2.5"/>
+    </g>
+
+    <!-- Header Bar of Document Card -->
+    <rect x="18" y="18" width="174" height="28" rx="8" fill="rgba(16, 185, 129, 0.15)"/>
+    <circle cx="34" cy="32" r="5" fill="#10B981"/>
+    <line x1="48" y1="32" x2="140" y2="32" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- Document Section Lines (Simulating Text & Clauses) -->
+    <line x1="22" y1="62" x2="165" y2="62" stroke="rgba(255, 255, 255, 0.7)" stroke-width="3" stroke-linecap="round"/>
+    <line x1="22" y1="76" x2="120" y2="76" stroke="rgba(255, 255, 255, 0.4)" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- 7-Step Workflow Checkmarks (Simulated 3 Key Stages) -->
+    <!-- Step 1: ขออนุมัติหลักการ -->
+    <g transform="translate(22, 98)">
+      <circle cx="10" cy="10" r="10" fill="rgba(16, 185, 129, 0.2)" stroke="#10B981" stroke-width="1.5"/>
+      <path d="M 6 10 L 9 13 L 14 7" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <line x1="28" y1="7" x2="110" y2="7" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+      <line x1="28" y1="14" x2="80" y2="14" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linecap="round"/>
+    </g>
+
+    <!-- Step 2: ราคากลาง & กำหนด TOR -->
+    <g transform="translate(22, 130)">
+      <circle cx="10" cy="10" r="10" fill="rgba(16, 185, 129, 0.2)" stroke="#10B981" stroke-width="1.5"/>
+      <path d="M 6 10 L 9 13 L 14 7" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <line x1="28" y1="7" x2="135" y2="7" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+      <line x1="28" y1="14" x2="95" y2="14" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linecap="round"/>
+    </g>
+
+    <!-- Step 3: ขออนุมัติซื้อ/จ้าง & ตรวจสอบ พ.ร.บ. -->
+    <g transform="translate(22, 162)">
+      <circle cx="10" cy="10" r="10" fill="rgba(253, 185, 19, 0.2)" stroke="#FDB913" stroke-width="1.5"/>
+      <circle cx="10" cy="10" r="3" fill="#FDB913"/>
+      <line x1="28" y1="7" x2="120" y2="7" stroke="#FFE57F" stroke-width="2" stroke-linecap="round"/>
+      <line x1="28" y1="14" x2="70" y2="14" stroke="rgba(253, 185, 19, 0.5)" stroke-width="1.5" stroke-linecap="round"/>
+    </g>
+
+    <!-- Golden Official Wax Stamp Seal (Bottom Right) -->
+    <g transform="translate(150, 180)">
+      <circle cx="16" cy="16" r="22" fill="#FDB913" filter="url(#emeraldGlow)" opacity="0.95"/>
+      <circle cx="16" cy="16" r="18" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-dasharray="2 2"/>
+      <!-- Lightning Bolt inside seal -->
+      <polygon points="18 4 10 17 16 17 14 28 22 15 16 15" fill="#741F84"/>
+    </g>
+  </g>
+
+  <!-- Floating Digital Badges (Right Top) -->
+  <g transform="translate(610, 85)">
+    <!-- Badge: พ.ร.บ. 2560 -->
+    <rect x="0" y="0" width="130" height="34" rx="17" fill="rgba(16, 185, 129, 0.2)" stroke="#10B981" stroke-width="1.5" backdrop-filter="blur(10px)"/>
+    <text x="65" y="22" font-family="'Prompt', sans-serif" font-size="13" font-weight="700" fill="#34D399" text-anchor="middle">
+      พ.ร.บ. ๒๕๖๐
+    </text>
+  </g>
+
+  <g transform="translate(570, 335)">
+    <!-- Badge: 7 Steps To-Do List -->
+    <rect x="0" y="0" width="165" height="34" rx="17" fill="rgba(253, 185, 19, 0.15)" stroke="#FDB913" stroke-width="1.5"/>
+    <text x="82" y="22" font-family="'Prompt', sans-serif" font-size="12" font-weight="600" fill="#FFE57F" text-anchor="middle">
+      7 ขั้นตอนจัดซื้อจัดจ้าง
+    </text>
+  </g>
+
+  <!-- Tech Cyber Border Accent -->
+  <rect x="16" y="16" width="768" height="418" rx="18" fill="none" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1"/>
+</svg>
