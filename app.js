@@ -1,154 +1,89 @@
 /**
  * PEA Transmission Line & Substation Portal Application
- * Interactivity: Live Bilingual Clock, Energy Grid Canvas, Filter/Search, Modal Preview, Copy URL Toast, 3D Tilt
+ * Interactivity: Live Thai Clock, Energy Grid Canvas, Filter/Search, Modal Preview, Copy URL Toast
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Bilingual Data Store for the 5 Main Applications
+  // 1. Data Store for the 5 Main Applications
   const APPS_DATA = {
     dashboard: {
       id: 'dashboard',
+      type: 'PROJECT DASHBOARD / CENTRAL REGION 3',
+      title: 'Dashboard สถานะงานก่อสร้างสายส่งและสถานีไฟฟ้า',
       url: 'https://dashboard-constrution-report.vercel.app/',
       image: 'assets/dashboard_card.jpg',
       category: 'monitoring',
-      th: {
-        type: 'PROJECT DASHBOARD / CENTRAL REGION 3',
-        title: 'Dashboard สถานะงานก่อสร้างสายส่งและสถานีไฟฟ้า',
-        description: 'ระบบรายงานภาพรวมและสถิติงานก่อสร้างสายส่งและสถานีไฟฟ้า จัดทำขึ้นเพื่อสนับสนุนการติดตามงานของ กฟก.3 รวบรวมข้อมูลสถานะงานก่อสร้างสายส่ง 115 kV, สถานะงานก่อสร้างสถานีไฟฟ้า, งานขออนุญาตหน่วยงานภายนอก (ทางหลวง, รถไฟ, เจ้าท่า ฯลฯ) ตลอดจนการติดตามผลการเบิกจ่ายงบประมาณงานก่อสร้างสถานีไฟฟ้าชั่วคราว เพื่อให้การบริหารงานโครงการเป็นไปอย่างมีประสิทธิภาพ',
-        features: [
-          'รายงานสถานะงานก่อสร้างสายส่ง 115 kV และสถานีไฟฟ้า กฟก.3',
-          'ตรวจสอบสถานะงานขออนุญาตหน่วยงานภายนอก (Permit)',
-          'ติดตามความก้าวหน้าและการเบิกจ่ายงบประมาณสถานีไฟฟ้าชั่วคราว',
-          'สรุปภาพรวมโครงการเพื่อสนับสนุนการติดตามงานของผู้บริหารและวิศวกร'
-        ]
-      },
-      en: {
-        type: 'PROJECT DASHBOARD / CENTRAL REGION 3',
-        title: 'Transmission Line & Substation Construction Dashboard',
-        description: 'Executive reporting and statistical analytics platform for 115 kV transmission line and substation construction under PEA Area 3 (Central). Aggregates 115 kV transmission line milestones, substation construction progress, external governing permits (Highways, Railways, Marine Dept., etc.), and temporary substation budget execution.',
-        features: [
-          'Status reports for 115 kV transmission lines and substations across Central 3',
-          'Permit status tracking across external governing bodies',
-          'Track temporary substation execution and budget disbursements',
-          'Executive project summaries to support engineering supervisors and directors'
-        ]
-      }
+      description: 'ระบบรายงานภาพรวมและสถิติงานก่อสร้างสายส่งและสถานีไฟฟ้า จัดทำขึ้นเพื่อสนับสนุนการติดตามงานของ กฟก.3 รวบรวมข้อมูลสถานะงานก่อสร้างสายส่ง 115 kV, สถานะงานก่อสร้างสถานีไฟฟ้า, งานขออนุญาตหน่วยงานภายนอก (ทางหลวง, รถไฟ, เจ้าท่า ฯลฯ) ตลอดจนการติดตามผลการเบิกจ่ายงบประมาณงานก่อสร้างสถานีไฟฟ้าชั่วคราว เพื่อให้การบริหารงานโครงการเป็นไปอย่างมีประสิทธิภาพ',
+      features: [
+        'รายงานสถานะงานก่อสร้างสายส่ง 115 kV และสถานีไฟฟ้า กฟก.3',
+        'ตรวจสอบสถานะงานขออนุญาตหน่วยงานภายนอก (Permit)',
+        'ติดตามความก้าวหน้าและการเบิกจ่ายงบประมาณสถานีไฟฟ้าชั่วคราว',
+        'สรุปภาพรวมโครงการเพื่อสนับสนุนการติดตามงานของผู้บริหารและวิศวกร'
+      ]
     },
     pcts: {
       id: 'pcts',
+      type: 'FIELD TRACKING / OPERATIONAL MONITORING',
+      title: 'PCTS (PEA Construction Tracking System)',
       url: 'https://pcts-psctm.vercel.app/',
       image: 'assets/pcts_card.jpg',
       category: 'field',
-      th: {
-        type: 'FIELD TRACKING / OPERATIONAL MONITORING',
-        title: 'PCTS (PEA Construction Tracking System)',
-        description: 'ระบบติดตามงานก่อสร้างระบบส่งและสถานีไฟฟ้า พัฒนาขึ้นเพื่อเป็นเครื่องมือกลางในการติดตามสถานะโครงการก่อสร้าง ทั้งงานที่ กฟภ. ดำเนินการเอง และงานจ้างเหมา ช่วยให้ผู้ควบคุมงานสามารถรายงานความก้าวหน้ารายโครงการ แนบภาพถ่ายหน้างานเพื่อบันทึกประวัติการทำงาน และเรียกดูภาพรวมผ่านมุมมองตาราง การ์ด ปฏิทิน และแผนภูมิ Gantt Chart',
-        features: [
-          'ติดตามสถานะโครงการตั้งแต่ขั้นตอนออกแบบ จัดจ้าง จนถึงแล้วเสร็จ',
-          'แยกประเภทการบริหารโครงการระหว่างงานดำเนินการเองและงานจ้างเหมา',
-          'บันทึกรายงานความก้าวหน้าโครงการพร้อมแนบภาพถ่ายหน้างานจริง',
-          'แสดงผลข้อมูลในรูปแบบการ์ด ตาราง ปฏิทินงาน และแผนภูมิ Gantt Chart'
-        ]
-      },
-      en: {
-        type: 'FIELD TRACKING / OPERATIONAL MONITORING',
-        title: 'PCTS (PEA Construction Tracking System)',
-        description: 'Field-level tracking and project management platform for transmission line and substation construction. Enables project supervisors to log progress, record photographic proof of work, and review timelines via Gantt charts.',
-        features: [
-          'End-to-end lifecycle tracking from design and contracting to commissioning',
-          'Separated project tracking for in-house execution and contracted projects',
-          'Progress logging with verified on-site field photography',
-          'Multi-view visualization: Kanban cards, data tables, calendars, and Gantt charts'
-        ]
-      }
+      description: 'ระบบติดตามงานก่อสร้างระบบส่งและสถานีไฟฟ้า พัฒนาขึ้นเพื่อเป็นเครื่องมือกลางในการติดตามสถานะโครงการก่อสร้าง ทั้งงานที่ กฟภ. ดำเนินการเอง และงานจ้างเหมา ช่วยให้ผู้ควบคุมงานสามารถรายงานความก้าวหน้ารายโครงการ แนบภาพถ่ายหน้างานเพื่อบันทึกประวัติการทำงาน และเรียกดูภาพรวมผ่านมุมมองตาราง การ์ด ปฏิทิน และแผนภูมิ Gantt Chart',
+      features: [
+        'ติดตามสถานะโครงการตั้งแต่ขั้นตอนออกแบบ จัดจ้าง จนถึงแล้วเสร็จ',
+        'แยกประเภทการบริหารโครงการระหว่างงานดำเนินการเองและงานจ้างเหมา',
+        'บันทึกรายงานความก้าวหน้าโครงการพร้อมแนบภาพถ่ายหน้างานจริง',
+        'แสดงผลข้อมูลในรูปแบบการ์ด ตาราง ปฏิทินงาน และแผนภูมิ Gantt Chart'
+      ]
     },
     scrap: {
       id: 'scrap',
+      type: 'SMART UTILITY / CALCULATION TOOL',
+      title: 'ระบบคำนวณการคืนพัสดุประเภทเศษเหล็ก',
       url: 'https://pea-scrap-calculator.vercel.app/',
       image: 'assets/scrap_card.svg',
       category: 'calculation',
-      th: {
-        type: 'SMART UTILITY / CALCULATION TOOL',
-        title: 'ระบบคำนวณการคืนพัสดุประเภทเศษเหล็ก',
-        description: 'เครื่องมือช่วยปฏิบัติงานในการรื้อถอนและส่งคืนพัสดุ ช่วยลดขั้นตอนการคำนวณน้ำหนักเหล็กฉาก เสาโครงเหล็ก และสายส่งอลูมิเนียม โดยเชื่อมโยงข้อมูลจากรายงานปิดงานระบบ SAP (ZPSR018) เข้ากับฐานข้อมูลน้ำหนักมาตรฐานของอุปกรณ์ กฟภ. เพื่อสรุปเป็นแบบฟอร์มเอกสารส่งคืนคลังพัสดุได้อย่างถูกต้อง รวดเร็ว และเป็นไปตามระเบียบงานพัสดุ',
-        features: [
-          'นำเข้าข้อมูลจากรายงานปิดงาน SAP ZPSR018 (ไฟล์ PDF / Excel)',
-          'คำนวณน้ำหนักเศษเหล็กและสายไฟฟ้าอัตโนมัติตามฐานข้อมูลมาตรฐาน กฟภ. (71 รายการ)',
-          'สรุปรายการวัสดุและพิมพ์แบบฟอร์มเอกสารส่งคืนคลังพัสดุตามระเบียบ กฟภ.',
-          'ช่วยลดความผิดพลาดในการกรอกข้อมูลและจัดเตรียมเอกสารส่งคืนพัสดุ'
-        ]
-      },
-      en: {
-        type: 'SMART UTILITY / CALCULATION TOOL',
-        title: 'PEA Scrap Material Return Calculator',
-        description: 'Automated calculation tool for dismantled steel and conductor scrap. Ingests SAP ZPSR018 project completion reports and applies certified PEA weight algorithms to generate compliant warehouse return documentation quickly and reliably.',
-        features: [
-          'Direct data ingestion from SAP ZPSR018 completion reports (PDF / Excel)',
-          'Automated scrap steel and conductor weight calculation (71 PEA standard items)',
-          'Instant generation and printing of standardized warehouse return forms',
-          'Reduces human entry errors and accelerates warehouse receipt verification'
-        ]
-      }
+      description: 'เครื่องมือช่วยปฏิบัติงานในการรื้อถอนและส่งคืนพัสดุ ช่วยลดขั้นตอนการคำนวณน้ำหนักเหล็กฉาก เสาโครงเหล็ก และสายส่งอลูมิเนียม โดยเชื่อมโยงข้อมูลจากรายงานปิดงานระบบ SAP (ZPSR018) เข้ากับฐานข้อมูลน้ำหนักมาตรฐานของอุปกรณ์ กฟภ. เพื่อสรุปเป็นแบบฟอร์มเอกสารส่งคืนคลังพัสดุได้อย่างถูกต้อง รวดเร็ว และเป็นไปตามระเบียบงานพัสดุ',
+      features: [
+        'นำเข้าข้อมูลจากรายงานปิดงาน SAP ZPSR018 (ไฟล์ PDF / Excel)',
+        'คำนวณน้ำหนักเศษเหล็กและสายไฟฟ้าอัตโนมัติตามฐานข้อมูลมาตรฐาน กฟภ. (71 รายการ)',
+        'สรุปรายการวัสดุและพิมพ์แบบฟอร์มเอกสารส่งคืนคลังพัสดุตามระเบียบ กฟภ.',
+        'ช่วยลดความผิดพลาดในการกรอกข้อมูลและจัดเตรียมเอกสารส่งคืนพัสดุ'
+      ]
     },
     mat115: {
       id: 'mat115',
+      type: 'PEA MATERIAL HUB / 115 KV STANDARDS',
+      title: 'คู่มืออุปกรณ์ไฟฟ้าสำหรับการก่อสร้างสายส่งแรงสูง 115 kV',
       url: 'https://115k-v-mat-manual.vercel.app/',
       image: 'assets/mat115_card.png',
       category: 'material',
-      th: {
-        type: 'PEA MATERIAL HUB / 115 KV STANDARDS',
-        title: 'คู่มืออุปกรณ์ไฟฟ้าสำหรับการก่อสร้างสายส่งแรงสูง 115 kV',
-        description: 'ศูนย์รวบรวมข้อมูลพัสดุอุปกรณ์ก่อสร้างสายส่ง 115 เควี ของ กฟภ. จัดทำขึ้นตามคู่มือมาตรฐานของกองมาตรฐานระบบไฟฟ้า (กมฟ.) ร่วมกับกองบริหารและจัดการคลังพัสดุ 4 (กคพ.4) รวบรวมข้อมูลอุปกรณ์ 9 หมวด 98 รายการ พร้อมรหัสพัสดุ SAP เลขที่แบบ สเปกทางวิศวกรรม เอกสารคู่มือ 111 หน้า ตลอดจนฟังก์ชันเปรียบเทียบอุปกรณ์และสร้างรายการเบิกพัสดุ (Material Cart)',
-        features: [
-          'ค้นหารหัสพัสดุ SAP สเปก และแบบมาตรฐานอุปกรณ์สายส่ง 115 kV (9 หมวด 98 รายการ)',
-          'เปิดดูแผ่นคู่มือมาตรฐาน กฟภ. ครบทั้ง 111 หน้า พร้อมฟังก์ชันค้นหาหน้าอุปกรณ์',
-          'ระบบเปรียบเทียบสเปกอุปกรณ์ และระบบสร้างรายการขอเบิกพัสดุ (BOM)',
-          'ศูนย์ทดสอบความรู้และบัตรคำ (Flashcards / Quiz) เสริมสร้างความเข้าใจในอุปกรณ์'
-        ]
-      },
-      en: {
-        type: 'PEA MATERIAL HUB / 115 KV STANDARDS',
-        title: 'PEA 115 kV Transmission Material Manual & Hub',
-        description: 'Centralized knowledge base and material handbook for 115 kV high-voltage transmission lines, developed jointly by Standards (KMF) and Warehouse (KKP4). Features SAP codes, specifications, drawings, and an interactive 111-page manual.',
-        features: [
-          'Search SAP material codes, technical specs, and drawings across 9 categories (98 items)',
-          'Browse the complete 111-page official PEA standard construction handbook',
-          'Side-by-side equipment comparison and Bill of Materials (BOM) requisition builder',
-          'Interactive flashcards and technical quizzes to test standard equipment knowledge'
-        ]
-      }
+      description: 'ศูนย์รวบรวมข้อมูลพัสดุอุปกรณ์ก่อสร้างสายส่ง 115 เควี ของ กฟภ. จัดทำขึ้นตามคู่มือมาตรฐานของกองมาตรฐานระบบไฟฟ้า (กมฟ.) ร่วมกับกองบริหารและจัดการคลังพัสดุ 4 (กคพ.4) รวบรวมข้อมูลอุปกรณ์ 9 หมวด 98 รายการ พร้อมรหัสพัสดุ SAP เลขที่แบบ สเปกทางวิศวกรรม เอกสารคู่มือ 111 หน้า ตลอดจนฟังก์ชันเปรียบเทียบอุปกรณ์และสร้างรายการเบิกพัสดุ (Material Cart)',
+      features: [
+        'ค้นหารหัสพัสดุ SAP สเปก และแบบมาตรฐานอุปกรณ์สายส่ง 115 kV (9 หมวด 98 รายการ)',
+        'เปิดดูแผ่นคู่มือมาตรฐาน กฟภ. ครบทั้ง 111 หน้า พร้อมฟังก์ชันค้นหาหน้าอุปกรณ์',
+        'ระบบเปรียบเทียบสเปกอุปกรณ์ และระบบสร้างรายการขอเบิกพัสดุ (BOM)',
+        'ศูนย์ทดสอบความรู้และบัตรคำ (Flashcards / Quiz) เสริมสร้างความเข้าใจในอุปกรณ์'
+      ]
     },
     procurement: {
       id: 'procurement',
+      type: 'SMART PROCUREMENT / LEGAL WORKFLOW',
+      title: 'ระบบผู้ช่วยจัดซื้อจัดจ้าง กฟภ. (PEA Smart Procurement Assistant)',
       url: 'https://pea-smart-procurement.vercel.app/',
       image: 'assets/procurement_card.svg',
       category: 'procurement',
-      th: {
-        type: 'SMART PROCUREMENT / LEGAL WORKFLOW',
-        title: 'ระบบผู้ช่วยจัดซื้อจัดจ้าง กฟภ. (PEA Smart Procurement)',
-        description: 'ระบบผู้ช่วยปฏิบัติงานจัดซื้อจัดจ้างของการไฟฟ้าส่วนภูมิภาค ออกแบบตามพระราชบัญญัติการจัดซื้อจัดจ้างและการบริหารพัสดุภาครัฐ พ.ศ. 2560 ช่วยให้เจ้าหน้าที่และผู้ควบคุมงานสามารถจัดการโครงการตามขั้นตอน To-do list 7 ขั้นตอน ตั้งแต่ขออนุมัติหลักการ กำหนดราคากลาง/TOR ขออนุมัติซื้อจ้าง เชื่อมโยงเลข PR/e-GP จนถึงการตรวจรับและเบิกจ่าย พร้อมเครื่องมือช่วยร่างเอกสารราชการและระบบตรวจจับข้อกำหนดทางกฎหมายเพื่อความถูกต้องโปร่งใส',
-        features: [
-          'ติดตามขั้นตอนการจัดซื้อจัดจ้างภาครัฐแบบเป็นลำดับ (To-do list 7 ขั้นตอนหลัก)',
-          'ระบบช่วยร่างหนังสือราชการ บันทึกข้อความ และเอกสารขออนุมัติซื้อจ้าง',
-          'ตรวจสอบเงื่อนไขวงเงินและวิธีจัดซื้อจัดจ้างตามเกณฑ์ พ.ร.บ. 2560 (เฉพาะเจาะจง / e-Bidding / คัดเลือก)',
-          'ระบบแฟ้มรวบรวมโครงการจัดซื้อจัดจ้าง แยกตามปีงบประมาณและสถานะงาน'
-        ]
-      },
-      en: {
-        type: 'SMART PROCUREMENT / LEGAL WORKFLOW',
-        title: 'PEA Smart Procurement Assistant (Act 2017)',
-        description: 'Procurement management assistant designed under the Public Procurement and Supplies Administration Act B.E. 2560. Guides officers through a 7-step To-do workflow, auto-drafts official memos, and provides legal compliance alerts for transparency.',
-        features: [
-          'Sequential 7-step guidance for public procurement workflows (To-do list)',
-          'Assisted drafting of official government memorandums and purchase approvals',
-          'Budget threshold verification and procurement method advisor (Specific / e-Bidding / Selective)',
-          'Repository organizing procurement packages by fiscal year and status'
-        ]
-      }
+      description: 'ระบบผู้ช่วยปฏิบัติงานจัดซื้อจัดจ้างของการไฟฟ้าส่วนภูมิภาค ออกแบบตามพระราชบัญญัติการจัดซื้อจัดจ้างและการบริหารพัสดุภาครัฐ พ.ศ. 2560 ช่วยให้เจ้าหน้าที่และผู้ควบคุมงานสามารถจัดการโครงการตามขั้นตอน To-do list 7 ขั้นตอน ตั้งแต่ขออนุมัติหลักการ กำหนดราคากลาง/TOR ขออนุมัติซื้อจ้าง เชื่อมโยงเลข PR/e-GP จนถึงการตรวจรับและเบิกจ่าย พร้อมเครื่องมือช่วยร่างเอกสารราชการและระบบตรวจจับข้อกำหนดทางกฎหมายเพื่อความถูกต้องโปร่งใส',
+      features: [
+        'ติดตามขั้นตอนการจัดซื้อจัดจ้างภาครัฐแบบเป็นลำดับ (To-do list 7 ขั้นตอนหลัก)',
+        'ระบบช่วยร่างหนังสือราชการ บันทึกข้อความ และเอกสารขออนุมัติซื้อจ้าง',
+        'ตรวจสอบเงื่อนไขวงเงินและวิธีจัดซื้อจัดจ้างตามเกณฑ์ พ.ร.บ. 2560 (เฉพาะเจาะจง / e-Bidding / คัดเลือก)',
+        'ระบบแฟ้มรวบรวมโครงการจัดซื้อจัดจ้าง แยกตามปีงบประมาณและสถานะงาน'
+      ]
     }
   };
 
-  // 2. Real-Time Bilingual Digital Clock & Calendar
+  // 2. Real-Time Thai Digital Clock & Calendar
   function initLiveClock() {
     const thaiDateEl = document.getElementById('liveThaiDate');
     const thaiTimeEl = document.getElementById('liveThaiTime');
@@ -160,59 +95,31 @@ document.addEventListener('DOMContentLoaded', () => {
       'กรกฎาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'
     ];
 
-    const enDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    const enMonths = [
-      'January', 'February', 'March', 'April', 'May', 'June',
-      'July', 'August', 'September', 'October', 'November', 'December'
-    ];
-
     function updateTime() {
       const now = new Date();
-      const currentLang = window.i18n ? window.i18n.getLanguage() : 'th';
-      const hours = String(now.getHours()).padStart(2, '0');
-      const minutes = String(now.getMinutes()).padStart(2, '0');
-      const seconds = String(now.getSeconds()).padStart(2, '0');
+      const dayName = thaiDays[now.getDay()];
+      const dateNum = now.getDate();
+      const monthName = thaiMonths[now.getMonth()];
       const thaiYear = now.getFullYear() + 543;
-      const gregorianYear = now.getFullYear();
 
-      if (currentLang === 'en') {
-        const dayName = enDays[now.getDay()];
-        const monthName = enMonths[now.getMonth()];
-        const dateNum = now.getDate();
+      if (thaiDateEl) {
+        thaiDateEl.textContent = `${dayName}ที่ ${dateNum} ${monthName} ${thaiYear}`;
+      }
 
-        if (thaiDateEl) {
-          thaiDateEl.textContent = `${dayName}, ${monthName} ${dateNum}, ${gregorianYear}`;
-        }
-        if (thaiTimeEl) {
-          thaiTimeEl.textContent = `${hours}:${minutes}:${seconds}`;
-        }
-        if (currentYearEl) {
-          currentYearEl.textContent = `${gregorianYear} (B.E. ${thaiYear})`;
-        }
-      } else {
-        const dayName = thaiDays[now.getDay()];
-        const monthName = thaiMonths[now.getMonth()];
-        const dateNum = now.getDate();
+      if (thaiTimeEl) {
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        thaiTimeEl.textContent = `${hours}:${minutes}:${seconds} น.`;
+      }
 
-        if (thaiDateEl) {
-          thaiDateEl.textContent = `${dayName}ที่ ${dateNum} ${monthName} ${thaiYear}`;
-        }
-        if (thaiTimeEl) {
-          thaiTimeEl.textContent = `${hours}:${minutes}:${seconds} น.`;
-        }
-        if (currentYearEl) {
-          currentYearEl.textContent = `${thaiYear} (ค.ศ. ${gregorianYear})`;
-        }
+      if (currentYearEl) {
+        currentYearEl.textContent = `${thaiYear} (ค.ศ. ${now.getFullYear()})`;
       }
     }
 
     updateTime();
     setInterval(updateTime, 1000);
-
-    // Refresh immediately on language switch
-    window.addEventListener('portalLanguageChanged', () => {
-      updateTime();
-    });
   }
 
   // 3. Theme Toggle (Dark Mode / Light Mode)
@@ -295,38 +202,43 @@ document.addEventListener('DOMContentLoaded', () => {
         if (node.x < 0 || node.x > width) node.vx *= -1;
         if (node.y < 0 || node.y > height) node.vy *= -1;
 
-        // Mouse attraction
-        if (mouse.x !== null && mouse.y !== null) {
-          const dx = mouse.x - node.x;
-          const dy = mouse.y - node.y;
+        // Draw particle
+        ctx.beginPath();
+        ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
+        ctx.fillStyle = node.colorType === 'purple' ? `${purpleColor}0.8)` : `${goldColor}0.9)`;
+        ctx.fill();
+
+        // Connect nearby nodes
+        for (let j = i + 1; j < nodes.length; j++) {
+          const other = nodes[j];
+          const dx = node.x - other.x;
+          const dy = node.y - other.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < mouse.maxDist) {
-            const force = (1 - dist / mouse.maxDist) * 0.02;
-            node.x += dx * force;
-            node.y += dy * force;
+
+          if (dist < 120) {
+            const alpha = (1 - dist / 120) * 0.28;
+            ctx.beginPath();
+            ctx.moveTo(node.x, node.y);
+            ctx.lineTo(other.x, other.y);
+            ctx.strokeStyle = node.colorType === 'purple' ? `${purpleColor}${alpha})` : `${goldColor}${alpha})`;
+            ctx.lineWidth = 1;
+            ctx.stroke();
           }
         }
 
-        const baseColor = node.colorType === 'purple' ? purpleColor : goldColor;
-        ctx.beginPath();
-        ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
-        ctx.fillStyle = baseColor + (isDark ? '0.75)' : '0.55)');
-        ctx.fill();
+        // Connect to mouse cursor
+        if (mouse.x !== null && mouse.y !== null) {
+          const mdx = node.x - mouse.x;
+          const mdy = node.y - mouse.y;
+          const mDist = Math.sqrt(mdx * mdx + mdy * mdy);
 
-        // Connect nearby nodes with grid lines
-        for (let j = i + 1; j < nodes.length; j++) {
-          const nodeB = nodes[j];
-          const dx = node.x - nodeB.x;
-          const dy = node.y - nodeB.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-
-          if (dist < 125) {
-            const alpha = (1 - dist / 125) * (isDark ? 0.22 : 0.12);
+          if (mDist < mouse.maxDist) {
+            const mAlpha = (1 - mDist / mouse.maxDist) * 0.45;
             ctx.beginPath();
             ctx.moveTo(node.x, node.y);
-            ctx.lineTo(nodeB.x, nodeB.y);
-            ctx.strokeStyle = baseColor + alpha + ')';
-            ctx.lineWidth = 1;
+            ctx.lineTo(mouse.x, mouse.y);
+            ctx.strokeStyle = `${goldColor}${mAlpha})`;
+            ctx.lineWidth = 1.2;
             ctx.stroke();
           }
         }
@@ -338,33 +250,33 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCanvas();
   }
 
-  // 5. Search & Filter Subsystem
+  // 5. Search & Filter Functionality
   function initSearchAndFilter() {
     const searchInput = document.getElementById('appSearchInput');
     const clearSearchBtn = document.getElementById('clearSearchBtn');
     const filterPills = document.querySelectorAll('.filter-tag');
-    const cards = document.querySelectorAll('.app-card');
+    const appCards = document.querySelectorAll('.app-card');
     const noResultsBox = document.getElementById('noResultsBox');
     const resetSearchBtn = document.getElementById('resetSearchBtn');
 
     let currentFilter = 'all';
-    let searchQuery = '';
+    let currentQuery = '';
 
-    function applyFilterAndSearch() {
+    function filterApps() {
       let visibleCount = 0;
-      const q = searchQuery.toLowerCase().trim();
 
-      cards.forEach(card => {
+      appCards.forEach(card => {
         const category = card.getAttribute('data-category');
-        const keywords = (card.getAttribute('data-keywords') || '').toLowerCase();
-        const cardTitle = card.querySelector('.app-title')?.textContent?.toLowerCase() || '';
-        const cardDesc = card.querySelector('.app-description')?.textContent?.toLowerCase() || '';
+        const keywords = card.getAttribute('data-keywords') || '';
+        const title = card.querySelector('.app-title')?.textContent || '';
+        const desc = card.querySelector('.app-description')?.textContent || '';
 
+        const fullText = (keywords + ' ' + title + ' ' + desc).toLowerCase();
         const matchesFilter = currentFilter === 'all' || category === currentFilter;
-        const matchesSearch = !q || keywords.includes(q) || cardTitle.includes(q) || cardDesc.includes(q);
+        const matchesQuery = !currentQuery || fullText.includes(currentQuery.toLowerCase().trim());
 
-        if (matchesFilter && matchesSearch) {
-          card.style.display = '';
+        if (matchesFilter && matchesQuery) {
+          card.style.display = 'flex';
           visibleCount++;
         } else {
           card.style.display = 'none';
@@ -372,63 +284,56 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       if (noResultsBox) {
-        noResultsBox.style.display = visibleCount === 0 ? 'flex' : 'none';
-      }
-
-      if (clearSearchBtn) {
-        clearSearchBtn.style.display = searchQuery ? 'block' : 'none';
+        noResultsBox.style.display = visibleCount === 0 ? 'block' : 'none';
       }
     }
 
-    // Filter Tag Click Event
-    filterPills.forEach(pill => {
-      pill.addEventListener('click', () => {
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        currentQuery = e.target.value;
+        if (clearSearchBtn) {
+          clearSearchBtn.style.display = currentQuery ? 'block' : 'none';
+        }
+        filterApps();
+      });
+    }
+
+    if (clearSearchBtn) {
+      clearSearchBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        currentQuery = '';
+        clearSearchBtn.style.display = 'none';
+        filterApps();
+        searchInput.focus();
+      });
+    }
+
+    filterPills.forEach(btn => {
+      btn.addEventListener('click', () => {
         filterPills.forEach(p => p.classList.remove('active'));
-        pill.classList.add('active');
-        currentFilter = pill.getAttribute('data-filter') || 'all';
-        applyFilterAndSearch();
+        btn.classList.add('active');
+        currentFilter = btn.getAttribute('data-filter');
+        filterApps();
       });
     });
 
-    // Real-Time Search Typing Event
-    if (searchInput) {
-      searchInput.addEventListener('input', (e) => {
-        searchQuery = e.target.value;
-        applyFilterAndSearch();
-      });
-
-      searchInput.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-          searchInput.value = '';
-          searchQuery = '';
-          applyFilterAndSearch();
-        }
-      });
-    }
-
-    // Clear Button
-    if (clearSearchBtn) {
-      clearSearchBtn.addEventListener('click', () => {
-        if (searchInput) searchInput.value = '';
-        searchQuery = '';
-        applyFilterAndSearch();
-        if (searchInput) searchInput.focus();
-      });
-    }
-
-    // Reset Search Button in Empty State
     if (resetSearchBtn) {
       resetSearchBtn.addEventListener('click', () => {
         if (searchInput) searchInput.value = '';
-        searchQuery = '';
+        currentQuery = '';
         currentFilter = 'all';
-        filterPills.forEach(p => p.classList.toggle('active', p.getAttribute('data-filter') === 'all'));
-        applyFilterAndSearch();
+        if (clearSearchBtn) clearSearchBtn.style.display = 'none';
+        filterPills.forEach(p => {
+          if (p.getAttribute('data-filter') === 'all') p.classList.add('active');
+          else p.classList.remove('active');
+        });
+        filterApps();
       });
     }
   }
 
-  // 6. Toast Notification Helper
+  // 6. Toast Notification Manager
+  let toastTimer = null;
   function showToast(message) {
     const toast = document.getElementById('toastNotification');
     const toastMsg = document.getElementById('toastMessage');
@@ -437,13 +342,10 @@ document.addEventListener('DOMContentLoaded', () => {
     toastMsg.textContent = message;
     toast.classList.add('show');
 
-    if (window.toastTimeout) {
-      clearTimeout(window.toastTimeout);
-    }
-
-    window.toastTimeout = setTimeout(() => {
+    if (toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
       toast.classList.remove('show');
-    }, 2800);
+    }, 3200);
   }
 
   // 7. Clipboard Copy Handler
@@ -460,6 +362,7 @@ document.addEventListener('DOMContentLoaded', () => {
           if (navigator.clipboard && window.isSecureContext) {
             await navigator.clipboard.writeText(url);
           } else {
+            // Fallback for older contexts
             const textArea = document.createElement('textarea');
             textArea.value = url;
             textArea.style.position = 'fixed';
@@ -470,19 +373,16 @@ document.addEventListener('DOMContentLoaded', () => {
             document.execCommand('copy');
             document.body.removeChild(textArea);
           }
-          const currentLang = window.i18n ? window.i18n.getLanguage() : 'th';
-          const prefix = currentLang === 'en' ? 'URL copied: ' : 'คัดลอกลิงก์เรียบร้อยแล้ว: ';
-          showToast(`${prefix}${url}`);
+          showToast(`คัดลอกลิงก์เรียบร้อยแล้ว: ${url}`);
         } catch (err) {
           console.error('Failed to copy: ', err);
-          const currentLang = window.i18n ? window.i18n.getLanguage() : 'th';
-          showToast(currentLang === 'en' ? 'Unable to copy URL automatically' : 'ไม่สามารถคัดลอกลิงก์ได้โดยอัตโนมัติ');
+          showToast('ไม่สามารถคัดลอกลิงก์ได้โดยอัตโนมัติ');
         }
       });
     });
   }
 
-  // 8. Quick Preview Modal Logic (Bilingual)
+  // 8. Quick Preview Modal Logic
   function initPreviewModal() {
     const modal = document.getElementById('previewModal');
     const closeBtn = document.getElementById('modalCloseBtn');
@@ -498,29 +398,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalFeaturesList = document.getElementById('modalFeaturesList');
     const modalLaunchBtn = document.getElementById('modalLaunchBtn');
 
-    let currentAppId = null;
     let currentModalUrl = '';
 
-    function renderModalContent(appId) {
+    function openModal(appId) {
       const app = APPS_DATA[appId];
       if (!app) return;
 
-      const currentLang = window.i18n ? window.i18n.getLanguage() : 'th';
-      const loc = app[currentLang] || app.th;
-
       currentModalUrl = app.url;
-      if (modalAppType) modalAppType.textContent = loc.type;
-      if (modalAppTitle) modalAppTitle.textContent = loc.title;
+      if (modalAppType) modalAppType.textContent = app.type;
+      if (modalAppTitle) modalAppTitle.textContent = app.title;
       if (modalPreviewImg) {
         modalPreviewImg.src = app.image;
-        modalPreviewImg.alt = loc.title;
+        modalPreviewImg.alt = app.title;
       }
       if (modalAppUrl) modalAppUrl.textContent = app.url;
-      if (modalAppDesc) modalAppDesc.textContent = loc.description;
+      if (modalAppDesc) modalAppDesc.textContent = app.description;
 
       if (modalFeaturesList) {
         modalFeaturesList.innerHTML = '';
-        loc.features.forEach(feat => {
+        app.features.forEach(feat => {
           const li = document.createElement('li');
           li.textContent = feat;
           modalFeaturesList.appendChild(li);
@@ -530,11 +426,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (modalLaunchBtn) {
         modalLaunchBtn.href = app.url;
       }
-    }
 
-    function openModal(appId) {
-      currentAppId = appId;
-      renderModalContent(appId);
       modal.classList.add('show');
       modal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
@@ -544,7 +436,6 @@ document.addEventListener('DOMContentLoaded', () => {
       modal.classList.remove('show');
       modal.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
-      currentAppId = null;
     }
 
     previewButtons.forEach(btn => {
@@ -573,18 +464,10 @@ document.addEventListener('DOMContentLoaded', () => {
       modalCopyBtn.addEventListener('click', () => {
         if (currentModalUrl) {
           navigator.clipboard.writeText(currentModalUrl);
-          const currentLang = window.i18n ? window.i18n.getLanguage() : 'th';
-          showToast(currentLang === 'en' ? `URL copied: ${currentModalUrl}` : `คัดลอกลิงก์สำเร็จ: ${currentModalUrl}`);
+          showToast(`คัดลอกลิงก์สำเร็จ: ${currentModalUrl}`);
         }
       });
     }
-
-    // Re-render modal if open when language changes
-    window.addEventListener('portalLanguageChanged', () => {
-      if (currentAppId && modal.classList.contains('show')) {
-        renderModalContent(currentAppId);
-      }
-    });
   }
 
   // 9. Interactive Card 3D Subtle Tilt
