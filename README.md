@@ -6,7 +6,7 @@ Web Portal หน้าแรกสำหรับการเข้าถึง
 
 ---
 
-## 🚀 ระบบงานหลักที่เชื่อมโยง (5 Web Applications)
+## 🚀 ระบบงานหลักที่เชื่อมโยง (6 Web Applications)
 
 1. **Dashboard สถานะงานก่อสร้างสายส่งและสถานีไฟฟ้า**
    - URL: [https://dashboard-constrution-report.vercel.app/](https://dashboard-constrution-report.vercel.app/)
@@ -23,6 +23,9 @@ Web Portal หน้าแรกสำหรับการเข้าถึง
 5. **ระบบผู้ช่วยจัดซื้อจัดจ้าง กฟภ. (PEA Smart Procurement Assistant)**
    - URL: [https://pea-smart-procurement.vercel.app/](https://pea-smart-procurement.vercel.app/)
    - ระบบผู้ช่วยบริหารจัดการงานจัดซื้อจัดจ้างตามระเบียบ พ.ร.บ. การจัดซื้อจัดจ้างภาครัฐ พ.ศ. 2560 ช่วยติดตามขั้นตอน To-do list 7 ขั้นตอนหลัก ร่างเอกสารและหนังสือราชการ พร้อมระบบแจ้งเตือนข้อกำหนดตามระเบียบกฎหมาย
+6. **ระบบติดตามและตรวจสอบการปิดงานก่อสร้าง (SAP ZPSR018)**
+   - URL: [https://project-close-check.vercel.app/](https://project-close-check.vercel.app/)
+   - ระบบติดตามและตรวจสอบความพร้อมการปิดงานก่อสร้างในระบบ SAP (ZPSR018 / ZBUDR018) ตรวจสอบเงื่อนไข 5 ด้าน วิเคราะห์ค่าใช้จ่ายหน้างานและระบบคำนวณการโอนงบประมาณชดเชยยอดติดลบ พร้อมพิมพ์รายงานสรุปผลการตรวจสอบ กส.3
 
 ---
 
