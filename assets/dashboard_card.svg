@@ -1,0 +1,336 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0E0720"/>
+      <stop offset="50%" stop-color="#080415"/>
+      <stop offset="100%" stop-color="#03010A"/>
+    </linearGradient>
+
+    <!-- PEA Purple & Gold Gradients -->
+    <linearGradient id="peaPurpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9333EA"/>
+      <stop offset="50%" stop-color="#7E22CE"/>
+      <stop offset="100%" stop-color="#581C87"/>
+    </linearGradient>
+
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE047"/>
+      <stop offset="100%" stop-color="#EAB308"/>
+    </linearGradient>
+
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#0284C7"/>
+    </linearGradient>
+
+    <linearGradient id="emeraldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34D399"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+
+    <linearGradient id="amberGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBBF24"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(26, 20, 56, 0.85)"/>
+      <stop offset="100%" stop-color="rgba(14, 10, 32, 0.95)"/>
+    </linearGradient>
+
+    <!-- Glow Filters -->
+    <filter id="glowPurple" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="14" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <!-- Tech Grid Pattern -->
+    <pattern id="gridPattern" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M 28 0 L 0 0 0 28" fill="none" stroke="rgba(147, 51, 234, 0.08)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="800" height="450" fill="url(#bgGrad)"/>
+  <rect width="800" height="450" fill="url(#gridPattern)"/>
+
+  <!-- Ambient Glowing Orbs -->
+  <circle cx="180" cy="120" r="160" fill="#7E22CE" opacity="0.22" filter="blur(65px)"/>
+  <circle cx="680" cy="180" r="170" fill="#0284C7" opacity="0.18" filter="blur(70px)"/>
+  <circle cx="420" cy="380" r="140" fill="#EAB308" opacity="0.1" filter="blur(55px)"/>
+
+  <!-- Geometric Line Accents -->
+  <g stroke="#9333EA" stroke-width="1" opacity="0.2" stroke-dasharray="4 4">
+    <line x1="40" y1="48" x2="760" y2="48"/>
+    <line x1="40" y1="402" x2="760" y2="402"/>
+    <line x1="40" y1="48" x2="40" y2="402"/>
+    <line x1="760" y1="48" x2="760" y2="402"/>
+  </g>
+
+  <!-- TOP HEADER CONTAINER -->
+  <g transform="translate(40, 20)">
+    <!-- Header Background with Glass Border -->
+    <rect x="0" y="0" width="720" height="54" rx="12" fill="rgba(24, 18, 52, 0.88)" stroke="rgba(147, 51, 234, 0.35)" stroke-width="1.2" filter="drop-shadow(0 6px 16px rgba(0,0,0,0.5))"/>
+    
+    <!-- Top Gradient Accent Strip -->
+    <path d="M 12 1 L 708 1" stroke="url(#peaPurpleGrad)" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- Zap Brand Icon -->
+    <g transform="translate(14, 11)">
+      <rect x="0" y="0" width="32" height="32" rx="8" fill="url(#peaPurpleGrad)"/>
+      <path d="M 17 6 L 10 18 L 16 18 L 15 26 L 22 14 L 16 14 Z" fill="#FDE047"/>
+    </g>
+
+    <!-- Header Titles -->
+    <g transform="translate(56, 15)">
+      <text x="0" y="14" font-family="'Prompt', 'Kanit', sans-serif" font-size="13.5" font-weight="700" fill="#FFFFFF" letter-spacing="0.2">
+        PEA Construction &amp; Disbursement Dashboard
+      </text>
+      <!-- Region Badge -->
+      <rect x="312" y="2" width="46" height="17" rx="4" fill="rgba(147, 51, 234, 0.25)" stroke="#A855F7" stroke-width="0.8"/>
+      <text x="321" y="14" font-family="'Prompt', sans-serif" font-size="9.5" font-weight="700" fill="#E9D5FF">กฟก.3</text>
+
+      <text x="0" y="29" font-family="'Prompt', sans-serif" font-size="9.5" fill="#94A3B8">
+        ระบบติดตามสถานะงานก่อสร้างสายส่ง 115 kV, สถานีไฟฟ้า, การเบิกจ่ายงบ WBS และการขออนุญาต
+      </text>
+    </g>
+
+    <!-- Header Action Buttons (Right) -->
+    <!-- File Badge -->
+    <g transform="translate(425, 14)">
+      <rect x="0" y="0" width="135" height="26" rx="6" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1"/>
+      <circle cx="10" cy="13" r="3.5" fill="#10B981"/>
+      <text x="18" y="17" font-family="'Prompt', sans-serif" font-size="8.5" fill="#CBD5E1">สถานะงานก่อสร้าง_0608.xlsx</text>
+    </g>
+
+    <!-- Upload Excel Button -->
+    <g transform="translate(568, 14)">
+      <rect x="0" y="0" width="86" height="26" rx="6" fill="url(#peaPurpleGrad)" filter="url(#glowPurple)"/>
+      <path d="M 12 16 L 16 11 L 20 16 M 16 11 L 16 21" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="25" y="17" font-family="'Prompt', sans-serif" font-size="9.5" font-weight="600" fill="#FFFFFF">อัปโหลด Excel</text>
+    </g>
+
+    <!-- Print Report Button -->
+    <g transform="translate(660, 14)">
+      <rect x="0" y="0" width="50" height="26" rx="6" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1"/>
+      <!-- Printer Icon -->
+      <path d="M 16 11 H 34 V 16 H 16 Z M 19 19 H 31 V 24 H 19 Z" fill="none" stroke="#CBD5E1" stroke-width="1.2"/>
+      <text x="22" y="17" font-family="'Prompt', sans-serif" font-size="8.5" font-weight="500" fill="#CBD5E1">พิมพ์</text>
+    </g>
+  </g>
+
+  <!-- 3 KPI SUMMARY METRIC CARDS -->
+  <g transform="translate(40, 84)">
+    <!-- KPI 1: สายส่ง 115 kV -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="232" height="66" rx="10" fill="url(#cardBg)" stroke="rgba(147, 51, 234, 0.4)" stroke-width="1.2" filter="drop-shadow(0 4px 12px rgba(0,0,0,0.4))"/>
+      <rect x="1" y="1" width="4" height="64" rx="2" fill="#9333EA"/>
+      <!-- Icon Box -->
+      <g transform="translate(186, 15)">
+        <rect x="0" y="0" width="34" height="34" rx="8" fill="rgba(147, 51, 234, 0.2)" stroke="rgba(147, 51, 234, 0.4)" stroke-width="1"/>
+        <path d="M 7 17 L 13 17 L 17 9 L 21 25 L 25 17 L 27 17" fill="none" stroke="#C084FC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <!-- Texts -->
+      <text x="16" y="20" font-family="'Prompt', sans-serif" font-size="10.5" font-weight="500" fill="#C084FC">งานก่อสร้างสายส่ง 115 kV</text>
+      <text x="16" y="42" font-family="'Kanit', sans-serif" font-size="20" font-weight="700" fill="#FFFFFF">8 งาน</text>
+      <text x="16" y="56" font-family="'Prompt', sans-serif" font-size="9" fill="#A855F7">ความก้าวหน้าเฉลี่ย 89.2%</text>
+    </g>
+
+    <!-- KPI 2: สถานีไฟฟ้า 30 แห่ง -->
+    <g transform="translate(244, 0)">
+      <rect x="0" y="0" width="232" height="66" rx="10" fill="url(#cardBg)" stroke="rgba(14, 165, 233, 0.4)" stroke-width="1.2" filter="drop-shadow(0 4px 12px rgba(0,0,0,0.4))"/>
+      <rect x="1" y="1" width="4" height="64" rx="2" fill="#0EA5E9"/>
+      <!-- Icon Box -->
+      <g transform="translate(186, 15)">
+        <rect x="0" y="0" width="34" height="34" rx="8" fill="rgba(14, 165, 233, 0.2)" stroke="rgba(14, 165, 233, 0.4)" stroke-width="1"/>
+        <path d="M 10 25 V 13 L 17 8 L 24 13 V 25 Z M 14 25 V 19 H 20 V 25 Z" fill="none" stroke="#38BDF8" stroke-width="1.8"/>
+      </g>
+      <!-- Texts -->
+      <text x="16" y="20" font-family="'Prompt', sans-serif" font-size="10.5" font-weight="500" fill="#38BDF8">สถานีไฟฟ้าตามแผน (30 แห่ง)</text>
+      <text x="16" y="42" font-family="'Kanit', sans-serif" font-size="20" font-weight="700" fill="#FFFFFF">18 / 30 แห่ง</text>
+      <text x="16" y="56" font-family="'Prompt', sans-serif" font-size="9" fill="#0EA5E9">เสร็จ 18 • ระหว่างทำ 7 • รอจัดจ้าง 5</text>
+    </g>
+
+    <!-- KPI 3: สถานะขออนุญาตพื้นที่ (Permit) -->
+    <g transform="translate(488, 0)">
+      <rect x="0" y="0" width="232" height="66" rx="10" fill="url(#cardBg)" stroke="rgba(245, 158, 11, 0.4)" stroke-width="1.2" filter="drop-shadow(0 4px 12px rgba(0,0,0,0.4))"/>
+      <rect x="1" y="1" width="4" height="64" rx="2" fill="#F59E0B"/>
+      <!-- Icon Box -->
+      <g transform="translate(186, 15)">
+        <rect x="0" y="0" width="34" height="34" rx="8" fill="rgba(245, 158, 11, 0.2)" stroke="rgba(245, 158, 11, 0.4)" stroke-width="1"/>
+        <path d="M 11 17 L 15 21 L 23 13 M 9 9 H 25" fill="none" stroke="#FBBF24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <!-- Texts -->
+      <text x="16" y="20" font-family="'Prompt', sans-serif" font-size="10.5" font-weight="500" fill="#FBBF24">สถานะการขออนุญาต (Permit)</text>
+      <text x="16" y="42" font-family="'Kanit', sans-serif" font-size="20" font-weight="700" fill="#FFFFFF">14 / 19 งาน</text>
+      <text x="16" y="56" font-family="'Prompt', sans-serif" font-size="9" fill="#F59E0B">ได้รับอนุญาตแล้ว (รอพิจารณา 5)</text>
+    </g>
+  </g>
+
+  <!-- 6 NAVIGATION TABS BAR -->
+  <g transform="translate(40, 160)">
+    <rect x="0" y="0" width="720" height="32" rx="8" fill="rgba(19, 14, 42, 0.7)" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1"/>
+    
+    <!-- Tab 1: Active Overview -->
+    <rect x="4" y="3" width="124" height="26" rx="6" fill="url(#peaPurpleGrad)"/>
+    <circle cx="16" cy="16" r="3" fill="#FDE047"/>
+    <text x="26" y="19" font-family="'Prompt', sans-serif" font-size="9.5" font-weight="600" fill="#FFFFFF">ภาพรวม (Overview)</text>
+
+    <!-- Tab 2: Transmission 115 kV -->
+    <rect x="132" y="3" width="118" height="26" rx="6" fill="rgba(255, 255, 255, 0.03)"/>
+    <text x="144" y="19" font-family="'Prompt', sans-serif" font-size="9.5" fill="#94A3B8">สายส่ง 115 kV</text>
+    <rect x="222" y="7" width="20" height="16" rx="8" fill="rgba(147, 51, 234, 0.3)"/>
+    <text x="229" y="19" font-family="'Prompt', sans-serif" font-size="8.5" font-weight="700" fill="#C084FC">8</text>
+
+    <!-- Tab 3: Substations 30 -->
+    <rect x="254" y="3" width="114" height="26" rx="6" fill="rgba(255, 255, 255, 0.03)"/>
+    <text x="266" y="19" font-family="'Prompt', sans-serif" font-size="9.5" fill="#94A3B8">สถานีไฟฟ้า</text>
+    <rect x="338" y="7" width="22" height="16" rx="8" fill="rgba(14, 165, 233, 0.3)"/>
+    <text x="343" y="19" font-family="'Prompt', sans-serif" font-size="8.5" font-weight="700" fill="#38BDF8">30</text>
+
+    <!-- Tab 4: WBS Disbursement -->
+    <rect x="372" y="3" width="128" height="26" rx="6" fill="rgba(255, 255, 255, 0.03)"/>
+    <text x="384" y="19" font-family="'Prompt', sans-serif" font-size="9.5" fill="#94A3B8">การเบิกจ่าย (WBS)</text>
+    <circle cx="484" cy="16" r="3" fill="#10B981"/>
+
+    <!-- Tab 5: Permits -->
+    <rect x="504" y="3" width="112" height="26" rx="6" fill="rgba(255, 255, 255, 0.03)"/>
+    <text x="516" y="19" font-family="'Prompt', sans-serif" font-size="9.5" fill="#94A3B8">การขออนุญาต</text>
+    <rect x="588" y="7" width="20" height="16" rx="8" fill="rgba(245, 158, 11, 0.3)"/>
+    <text x="593" y="19" font-family="'Prompt', sans-serif" font-size="8.5" font-weight="700" fill="#FBBF24">19</text>
+
+    <!-- Tab 6: Gantt Schedule -->
+    <rect x="620" y="3" width="94" height="26" rx="6" fill="rgba(255, 255, 255, 0.03)"/>
+    <text x="636" y="19" font-family="'Prompt', sans-serif" font-size="9.5" fill="#94A3B8">Gantt แผนงาน</text>
+  </g>
+
+  <!-- MAIN DASHBOARD CONTENT AREA (2 PANELS) -->
+  <g transform="translate(40, 202)">
+    <!-- LEFT PANEL: Transmission Progress & Active Projects -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="374" height="188" rx="12" fill="url(#cardBg)" stroke="rgba(147, 51, 234, 0.3)" stroke-width="1.2" filter="drop-shadow(0 8px 20px rgba(0,0,0,0.5))"/>
+      
+      <!-- Panel Header -->
+      <rect x="1" y="1" width="372" height="34" rx="11" fill="rgba(147, 51, 234, 0.1)"/>
+      <path d="M 1 35 L 373 35" stroke="rgba(147, 51, 234, 0.2)" stroke-width="1"/>
+      
+      <circle cx="16" cy="18" r="4" fill="#C084FC"/>
+      <text x="26" y="22" font-family="'Prompt', sans-serif" font-size="11" font-weight="600" fill="#FFFFFF">
+        ความก้าวหน้าโครงการสายส่ง 115 kV (Active Works)
+      </text>
+
+      <!-- Project Row 1: สินสาคร - สมุทรสาคร 13 -->
+      <g transform="translate(14, 46)">
+        <text x="0" y="12" font-family="'Prompt', sans-serif" font-size="10" font-weight="500" fill="#E2E8F0">1. สฟ.สินสาคร - สฟ.สมุทรสาคร 13 (6.85 วงจร-กม.)</text>
+        <text x="306" y="12" font-family="'Kanit', sans-serif" font-size="11" font-weight="700" fill="#10B981">99.0%</text>
+        <!-- Bar Base -->
+        <rect x="0" y="18" width="346" height="7" rx="3.5" fill="rgba(255, 255, 255, 0.08)"/>
+        <rect x="0" y="18" width="342" height="7" rx="3.5" fill="url(#emeraldGrad)"/>
+      </g>
+
+      <!-- Project Row 2: Cut&Turn สฟ.สมุทรสาคร 11 -->
+      <g transform="translate(14, 80)">
+        <text x="0" y="12" font-family="'Prompt', sans-serif" font-size="10" font-weight="500" fill="#E2E8F0">2. Cut&amp;Turn (สฟ.สมุทรสาคร 4-5) - สฟ.สมุทรสาคร 11</text>
+        <text x="302" y="12" font-family="'Kanit', sans-serif" font-size="11" font-weight="700" fill="#38BDF8">100.0%</text>
+        <!-- Bar Base -->
+        <rect x="0" y="18" width="346" height="7" rx="3.5" fill="rgba(255, 255, 255, 0.08)"/>
+        <rect x="0" y="18" width="346" height="7" rx="3.5" fill="url(#cyanGrad)"/>
+      </g>
+
+      <!-- Project Row 3: เพิ่มจุดจ่ายไฟที่ 2 สฟ.กำแพงแสน -->
+      <g transform="translate(14, 114)">
+        <text x="0" y="12" font-family="'Prompt', sans-serif" font-size="10" font-weight="500" fill="#E2E8F0">3. เพิ่มจุดจ่ายไฟที่ 2 สฟ.กำแพงแสน (กฟผ.) - ตลาดกำแพงแสน</text>
+        <text x="302" y="12" font-family="'Kanit', sans-serif" font-size="11" font-weight="700" fill="#38BDF8">100.0%</text>
+        <!-- Bar Base -->
+        <rect x="0" y="18" width="346" height="7" rx="3.5" fill="rgba(255, 255, 255, 0.08)"/>
+        <rect x="0" y="18" width="346" height="7" rx="3.5" fill="url(#cyanGrad)"/>
+      </g>
+
+      <!-- Project Row 4: Tap line สฟ.สมุทรสาคร 14 (ชั่วคราว) -->
+      <g transform="translate(14, 148)">
+        <text x="0" y="12" font-family="'Prompt', sans-serif" font-size="10" font-weight="500" fill="#E2E8F0">4. Tap line (สฟ.สมุทรสาคร 6 - สินสาคร) - สฟ.สมุทรสาคร 14</text>
+        <text x="306" y="12" font-family="'Kanit', sans-serif" font-size="11" font-weight="700" fill="#FBBF24">95.0%</text>
+        <!-- Bar Base -->
+        <rect x="0" y="18" width="346" height="7" rx="3.5" fill="rgba(255, 255, 255, 0.08)"/>
+        <rect x="0" y="18" width="328" height="7" rx="3.5" fill="url(#amberGrad)"/>
+      </g>
+    </g>
+
+    <!-- RIGHT PANEL: WBS Budget & Disbursement Tracker -->
+    <g transform="translate(388, 0)">
+      <rect x="0" y="0" width="332" height="188" rx="12" fill="url(#cardBg)" stroke="rgba(16, 185, 129, 0.35)" stroke-width="1.2" filter="drop-shadow(0 8px 20px rgba(0,0,0,0.5))"/>
+      
+      <!-- Panel Header -->
+      <rect x="1" y="1" width="330" height="34" rx="11" fill="rgba(16, 185, 129, 0.1)"/>
+      <path d="M 1 35 L 331 35" stroke="rgba(16, 185, 129, 0.2)" stroke-width="1"/>
+
+      <!-- Wallet Icon -->
+      <circle cx="16" cy="18" r="4" fill="#34D399"/>
+      <text x="26" y="22" font-family="'Prompt', sans-serif" font-size="11" font-weight="600" fill="#34D399">
+        ติดตามงบประมาณและการเบิกจ่าย (WBS Actuals)
+      </text>
+
+      <!-- 2x2 Mini Budget Grid -->
+      <g transform="translate(12, 44)">
+        <!-- Box 1: Budget Total -->
+        <rect x="0" y="0" width="148" height="46" rx="8" fill="rgba(147, 51, 234, 0.12)" stroke="rgba(147, 51, 234, 0.25)" stroke-width="1"/>
+        <text x="10" y="16" font-family="'Prompt', sans-serif" font-size="8.5" fill="#D8B4FE">งบประมาณปัจจุบัน (WBS)</text>
+        <text x="10" y="34" font-family="'JetBrains Mono', 'Kanit', monospace" font-size="12.5" font-weight="700" fill="#FFFFFF">458,240,000 ฿</text>
+
+        <!-- Box 2: Actual Total -->
+        <rect x="160" y="0" width="148" height="46" rx="8" fill="rgba(16, 185, 129, 0.12)" stroke="rgba(16, 185, 129, 0.3)" stroke-width="1"/>
+        <text x="170" y="16" font-family="'Prompt', sans-serif" font-size="8.5" fill="#A7F3D0">เบิกจ่ายจริงสะสม (Act.)</text>
+        <text x="170" y="34" font-family="'JetBrains Mono', 'Kanit', monospace" font-size="12.5" font-weight="700" fill="#34D399">312,650,000 ฿</text>
+
+        <!-- Box 3: PR/PO Committed -->
+        <rect x="0" y="54" width="148" height="46" rx="8" fill="rgba(14, 165, 233, 0.12)" stroke="rgba(14, 165, 233, 0.25)" stroke-width="1"/>
+        <text x="10" y="70" font-family="'Prompt', sans-serif" font-size="8.5" fill="#BAE6FD">ภาระผูกพัน (PR/PO)</text>
+        <text x="10" y="88" font-family="'JetBrains Mono', 'Kanit', monospace" font-size="12.5" font-weight="700" fill="#38BDF8">68,420,000 ฿</text>
+
+        <!-- Box 4: Remaining -->
+        <rect x="160" y="54" width="148" height="46" rx="8" fill="rgba(245, 158, 11, 0.12)" stroke="rgba(245, 158, 11, 0.25)" stroke-width="1"/>
+        <text x="170" y="70" font-family="'Prompt', sans-serif" font-size="8.5" fill="#FDE68A">งบประมาณคงเหลือ</text>
+        <text x="170" y="88" font-family="'JetBrains Mono', 'Kanit', monospace" font-size="12.5" font-weight="700" fill="#FBBF24">77,170,000 ฿</text>
+      </g>
+
+      <!-- Consolidated Progress Bar -->
+      <g transform="translate(12, 152)">
+        <text x="0" y="11" font-family="'Prompt', sans-serif" font-size="9" fill="#94A3B8">สัดส่วนการเบิกจ่ายโครงการ:</text>
+        <text x="264" y="11" font-family="'Kanit', sans-serif" font-size="11" font-weight="700" fill="#34D399">68.2%</text>
+        
+        <!-- Multi-segment progress bar -->
+        <g transform="translate(0, 16)">
+          <rect x="0" y="0" width="308" height="8" rx="4" fill="rgba(255, 255, 255, 0.08)"/>
+          <!-- Act (68.2%) -->
+          <rect x="0" y="0" width="210" height="8" rx="4" fill="#10B981"/>
+          <!-- PR/PO (14.9%) -->
+          <rect x="210" y="0" width="46" height="8" fill="#0EA5E9"/>
+          <!-- Remaining (16.9%) stays empty/muted -->
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- BOTTOM STATUS & METRIC PILL RIBBON -->
+  <g transform="translate(40, 404)">
+    <rect x="0" y="0" width="720" height="30" rx="8" fill="rgba(14, 10, 30, 0.85)" stroke="rgba(147, 51, 234, 0.3)" stroke-width="1"/>
+    
+    <!-- PEA Logo Circle Dot -->
+    <circle cx="16" cy="15" r="7" fill="#7E22CE"/>
+    <polygon points="16,10 14,15 17,15 15,20 19,14 16,14" fill="#FDE047"/>
+    
+    <text x="32" y="19" font-family="'Prompt', sans-serif" font-size="10" font-weight="500" fill="#E2E8F0">
+      ระบบรายงานสถานะงานก่อสร้าง กฟก.3 • Strict Schema Validation • S-Curve &amp; Gantt • รายละเอียด 30 สถานีไฟฟ้า
+    </text>
+
+    <!-- Online Status Pill -->
+    <rect x="626" y="5" width="86" height="20" rx="10" fill="rgba(16, 185, 129, 0.2)" stroke="#10B981" stroke-width="1"/>
+    <circle cx="637" cy="15" r="3" fill="#10B981"/>
+    <text x="645" y="18" font-family="'Prompt', sans-serif" font-size="9" font-weight="600" fill="#34D399">อัปเดตใหม่ ⚡</text>
+  </g>
+</svg>
